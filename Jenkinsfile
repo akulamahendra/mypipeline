@@ -8,11 +8,13 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/akulamahendra/pipeline2'
-            }
-        }
+       stage('Clone Repository') {
+    steps {
+        git branch: 'main',
+            credentialsId: 'my-github-credentials',
+            url: 'https://github.com/akulamahendra/pipeline2.git'
+    }
+}
 
         stage('Terraform Init') {
             steps {
