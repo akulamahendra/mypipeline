@@ -20,17 +20,12 @@ resource "aws_instance" "server1" {
 resource "aws_eip" "staticip" {
   instance = aws_instance.server1.id
 
-  provisioner "local-exec" {
+ provisioner "local-exec" {
     command = <<EOT
-sleep 80
-ssh-keygen -R ${self.public_ip}
-
-ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook \
--i ${self.public_ip}, \
-playbook.yaml \
--u ec2-user \
---private-key /home/ec2-user/docker.pem
-EOT
+      sudo sleep 120
+      sudo ssh-keygen -R ${self.public_ip}
+      sudo ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.public_ip}, playbook.yaml -u ec2-user --private-key /home/ec2-user/docker.pem
+    EOT
   }
 }
 
