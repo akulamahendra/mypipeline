@@ -15,7 +15,6 @@ resource "aws_instance" "server1" {
   ami               = "ami-0e12ffc2dd465f6e4"
   availability_zone = "ap-south-1a"
   instance_type     = "t3.micro"
-}
 
  provisioner "local-exec" {
     command = <<EOT
