@@ -2,17 +2,19 @@ pipeline {
     agent any
 
     environment {
-        AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
+        AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-        AWS_DEFAULT_REGION = 'ap-south-1'
+        AWS_DEFAULT_REGION    = 'ap-south-1'
     }
 
     stages {
-       stage('Clone Repository') {
-    steps {
-            url: 'https://github.com/akulamahendra/mypipeline.git'
-    }
-}
+
+        stage('Clone Repository') {
+            steps {
+                git url: 'https://github.com/akulamahendra/mypipeline.git',
+            
+            }
+        }
 
         stage('Terraform Init') {
             steps {
@@ -39,4 +41,3 @@ pipeline {
         }
     }
 }
-
