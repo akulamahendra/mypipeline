@@ -21,9 +21,8 @@ resource "aws_instance" "server1" {
 }
 
 resource "aws_eip" "staticip" {
-
   instance = aws_instance.server1.id
-  
+}
 
   provisioner "local-exec" {
         command =  <<EOT
