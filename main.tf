@@ -17,10 +17,6 @@ resource "aws_instance" "server1" {
   instance_type     = "t3.micro"
 }
 
-resource "aws_eip" "staticip" {
-  instance = aws_instance.server1.id
-}
-
  provisioner "local-exec" {
     command = <<EOT
       sudo ssh-keygen -R ${self.public_ip}
@@ -29,6 +25,4 @@ resource "aws_eip" "staticip" {
   }
 }
 
-output "aws_eip" {
-    value = aws_instance.server1.public_ip
-}
+
