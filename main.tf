@@ -29,5 +29,5 @@ resource "aws_eip" "staticip" {
 }
 
 output "aws_eip" {
-  value = aws_eip.staticip.public_ip
+    value = aws_instance.server1.public_ip
 }
