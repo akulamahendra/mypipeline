@@ -11,7 +11,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git url: 'https://github.com/akulamahendra/mypipeline'
+                git 'https://github.com/akulamahendra/mypipeline'
             
             }
         }
