@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
         source = "aws/hashicorp"
-        version = "6.45.0"
+        version = "~> 3.0"
 
     }
   }
@@ -37,7 +37,6 @@ resource "aws_eip" "staticip" {
     
   }
 }
-
 output "aws_eip" {
   value = aws_eip.staticip.id
 }
