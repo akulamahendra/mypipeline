@@ -12,7 +12,6 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 git url: 'https://github.com/akulamahendra/mypipeline'
-                    branch: 'main'
             
             }
         }
